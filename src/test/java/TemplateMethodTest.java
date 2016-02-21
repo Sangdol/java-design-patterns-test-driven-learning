@@ -4,8 +4,11 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 /**
- * http://refactoring.com/catalog/formTemplateMethod.html
- * https://en.wikipedia.org/wiki/Template_method_pattern
+ * http://c2.com/cgi/wiki?TemplateMethodPattern
+ *
+ * - Define the skeleton of an algorithm in an operation, deferring some steps to subclasses.
+ * - TemplateMethod lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.
+ *
  * @author hugh
  */
 public class TemplateMethodTest {
