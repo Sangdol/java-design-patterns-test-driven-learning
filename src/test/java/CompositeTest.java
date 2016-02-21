@@ -35,6 +35,25 @@ public class CompositeTest {
         }
     }
 
+    /**
+     * Encapsulate Composite with Builder
+     * https://www.industriallogic.com/xp/refactoring/compositeWithBulder.html
+     */
+    static class BoardBuilder implements DecoratorTest.Board {
+        List<DecoratorTest.Board> boards = new ArrayList<>();
+
+        @Override
+        public String draw() {
+            return boards.stream()
+                    .map(DecoratorTest.Board::draw)
+                    .collect(Collectors.joining());
+        }
+
+        public void addStarBoard() {
+            boards.add(new DecoratorTest.StarBoard());
+        }
+    }
+
     @Test
     public void compositeTest() throws Exception {
         DecoratorTest.Board starBoard = new DecoratorTest.StarBoard();
@@ -44,5 +63,14 @@ public class CompositeTest {
         compositeBoard.add(plusBoard);
 
         assertThat(compositeBoard.draw(), is("***+***+"));
+    }
+
+    @Test
+    public void boardBuilderTest() throws Exception {
+        BoardBuilder builder = new BoardBuilder();
+        builder.addStarBoard();
+        builder.addStarBoard();
+
+        assertThat(builder.draw(), is("******"));
     }
 }
