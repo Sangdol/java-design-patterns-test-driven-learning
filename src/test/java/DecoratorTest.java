@@ -24,7 +24,7 @@ public class DecoratorTest {
         String draw();
     }
 
-    static class StarBoard implements Board {
+    public static class StarBoard implements Board {
         @Override
         public String draw() {
             return "***";
