@@ -22,14 +22,14 @@ public class AbstractFactoryTest {
         Board createBoard();
     }
     
-    class StarBoard implements Board {
+    public static class StarBoard implements Board {
         @Override
         public String draw() {
             return "*";
         }
     }
     
-    class PlusBoard implements Board {
+    public static class PlusBoard implements Board {
         @Override
         public String draw() {
             return "+";
